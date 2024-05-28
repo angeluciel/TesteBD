@@ -1,3 +1,4 @@
+using Bogus;
 using Dominio;
 
 namespace Teste
@@ -8,7 +9,7 @@ namespace Teste
         private string _nome      = "Kevin";
         private string _endereco  = "Casa do Gru";
         private string _telefone  = "58999398372";
-        private string _email     = "notaminio@banana.com";
+        private string _email     = "notaminion@banana.com";
 
 
         public static ClienteBuilder Novo()
@@ -18,7 +19,19 @@ namespace Teste
 
         public Cliente Criar()
         {
-            return new Cliente(_codigo, _nome, _endereco, _telefone, _email);
+            return new Cliente(_codigo, _nome, _endereco,
+                _telefone, _email);
+        }
+
+        public ClienteBuilder Popular()
+        {
+            Faker faker = new Faker();
+            _codigo = faker.Random.Int(1, 1000);
+            _nome = faker.Person.FullName;
+            _endereco = faker.Person.Address.Street;
+            _telefone = faker.Person.Phone;
+            _email = faker.Person.Email;
+            return this;
         }
 
         public ClienteBuilder ComCodigo(int codigo)

@@ -2,6 +2,7 @@
 {
     public class Produto
     {
+        public static List<ProdutoDTO> = new ...();
 
     }
 }
