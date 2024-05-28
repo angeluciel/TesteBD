@@ -57,9 +57,48 @@ namespace Teste
         }
 
         [Theory]
+        [InlineData(0)]
+        [InlineData(-1)]
+        [InlineData(-200)]
+
+        public void FornCodigoErrado(int codigoErrado)
+        {
+            Assert.Throws<ArgumentException>(
+                () =>
+                FornecedorBuilder.Novo().ComCodigo(codigoErrado).Criar());
+        }
+
+        [Theory]
         [InlineData("")]
         [InlineData(null)]
 
-        
+        public void FornNomeErrado(string nomeErrado)
+        {
+            Assert.Throws<ArgumentException>(
+                () =>
+                FornecedorBuilder.Novo().ComNome(nomeErrado).Criar());
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+
+        public void FornEnderecoErrado(string enderecoErrado)
+        {
+            Assert.Throws<ArgumentException>(
+                () =>
+                FornecedorBuilder.Novo().ComEndereco(enderecoErrado).Criar());
+        }
+
+        [Theory]
+        [InlineData("")]
+        [InlineData(null)]
+
+        public void FornTelefoneErrado(string telefoneErrado)
+        {
+            Assert.Throws<ArgumentException>(
+                () =>
+                FornecedorBuilder.Novo().ComTelefone(telefoneErrado).Criar());
+        }
     }
 }

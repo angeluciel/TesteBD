@@ -26,13 +26,13 @@ namespace Teste
 
         public FornecedorBuilder Popular()
         {
-            Faker faker = new Faker();
-            _codigo = faker.Random.Int(1, 1000);
-            _nomeEmpresa = faker.Person.FullName;
-            _endereco = faker.Person.Address.Street;
-            _telefone = faker.Person.Phone;
-            _email = faker.Person.Email;
-            _termosPag = faker.Random.ListItem(new[] { "30 dias", "60 dias", "90 dias" });
+            Faker faker   = new Faker();
+            _codigo       = faker.Random.Int(1, 1000);
+            _nomeEmpresa  = faker.Person.FullName;
+            _endereco     = faker.Person.Address.Street;
+            _telefone     = faker.Person.Phone;
+            _email        = faker.Person.Email;
+            _termosPag    = faker.Random.ListItem(new[] { "30 dias", "60 dias", "90 dias" });
             return this;
         }
 
